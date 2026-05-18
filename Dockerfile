@@ -1,4 +1,4 @@
-FROM FROM ghcr.io/decolua/9router:latest
+FROM ghcr.io/decolua/9router:latest
 
 EXPOSE 3000
 
