@@ -1,5 +1,5 @@
-FROM eceasy/cli-proxy-api:latest
+FROM FROM ghcr.io/decolua/9router:latest
 
 EXPOSE 3000
 
-CMD ["./CLIProxyAPI"]
+CMD ["node", "server.js", "-p", "3000"]
