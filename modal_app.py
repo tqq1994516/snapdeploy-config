@@ -16,6 +16,6 @@ image = modal.Image.from_dockerfile(
 def run_cliproxy():
     import subprocess
     subprocess.run(
-        ["/CLIProxyAPI"],
+        ["./CLIProxyAPI"],
         shell=True,
     )
