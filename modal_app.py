@@ -1,6 +1,6 @@
 import modal
 
-app = modal.App()
+app = modal.App("cliproxyapi")
 
 # 镜像
 image = modal.Image.from_registry(
