@@ -2,7 +2,11 @@ FROM eceasy/cli-proxy-api:latest AS source
 
 FROM python:3.11-slim
 
-COPY --from=source /CLIProxyAPI /
+RUN mkdir /CLIProxyAPI
 
-RUN chmod +x /CLIProxyAPI
+COPY --from=source /CLIProxyAPI /CLIProxyAPI
+
+WORKDIR /CLIProxyAPI
+
+RUN chmod +x /CLIProxyAPI/CLIProxyAPI
 EXPOSE 8317
