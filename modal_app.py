@@ -3,10 +3,9 @@ import modal
 app = modal.App("cliproxyapi")
 
 # 镜像
-image = modal.Image.from_registry(
-    "eceasy/cli-proxy-api:latest",
-    force_build=True,
-    add_python="3.11"
+image = modal.Image.from_dockerfile(
+    "./Dockerfile",
+    force_build=True
 )
 
 @app.function(
