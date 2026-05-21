@@ -4,7 +4,8 @@ FROM python:3.11-slim
 
 RUN mkdir /CLIProxyAPI
 
-COPY --from=source /CLIProxyAPI /CLIProxyAPI
+COPY --from=source /CLIProxyAPI/CLIProxyAPI /CLIProxyAPI/CLIProxyAPI
+COPY --from=source /CLIProxyAPI/config.example.yaml /CLIProxyAPI/config.example.yaml
 
 WORKDIR /CLIProxyAPI
 
