@@ -15,6 +15,7 @@ image = modal.Image.from_dockerfile(
     max_containers=1,
     scaledown_window=3600,
 )
+@modal.concurrent(max_inputs=100)
 @modal.web_server(8317, startup_timeout=120)
 def run_cliproxy():
     import subprocess
