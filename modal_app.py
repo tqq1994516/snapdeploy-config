@@ -10,7 +10,9 @@ image = modal.Image.from_dockerfile(
 
 @app.function(
     image=image,
-    secrets=[modal.Secret.from_name("r2-secret")]
+    secrets=[modal.Secret.from_name("r2-secret")],
+    min_containers=0,
+    max_containers=1,
 )
 @modal.web_server(8317, startup_timeout=60)  # 这里定义端口即可！
 def run_cliproxy():
