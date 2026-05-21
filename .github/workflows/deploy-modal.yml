@@ -1,0 +1,30 @@
+name: Deploy to Modal
+
+on:
+  push:
+    branches: [ main ]  # 推送到 main 时自动部署
+  workflow_dispatch:    # 允许手动触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # 可改成你需要的版本
+
+      - name: Install Modal
+        run: pip install modal
+
+      - name: Set Modal Token
+        run: modal token set --token-id ${{ secrets.MODAL_AK }} --token-secret ${{ secrets.MODAL_SK }}
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_AK }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_SK }}
+
+      - name: Deploy to Modal
+        run: modal deploy modal_app.py
