@@ -16,12 +16,8 @@ image = modal.Image.from_dockerfile(
     max_inputs=1000,
     scaledown_window=3600,
 )
-@modal.web_server(8317, startup_timeout=60)  # 这里定义端口即可！
+@modal.web_server(8317, startup_timeout=120)
 def run_cliproxy():
     import subprocess
-    import time
     
-    proc = subprocess.Popen(["./CLIProxyAPI"])
-
-    while 1:
-        time.sleep(60)
+    subprocess.execv("/CLIProxyAPI", ["/CLIProxyAPI"])
