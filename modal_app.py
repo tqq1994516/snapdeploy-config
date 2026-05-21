@@ -5,7 +5,7 @@ app = modal.App("cliproxyapi")
 # 镜像
 image = modal.Image.from_registry(
     "eceasy/cli-proxy-api:latest",
-    add_python=False
+    add_python="3.11"
 )
 
 @app.function(
