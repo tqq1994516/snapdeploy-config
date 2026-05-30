@@ -5,9 +5,9 @@ app = modal.App("cliproxyapi")
 # 镜像
 image = modal.Image.from_dockerfile(
     "./Dockerfile",
-    force_build=True
+    force_build=True,
+    build_args={"PULL_LATEST": "true"},
 )
-.dockerfile_commands("ARG PULL_LATEST=true")
 
 @app.function(
     image=image,
