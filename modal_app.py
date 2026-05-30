@@ -7,6 +7,7 @@ image = modal.Image.from_dockerfile(
     "./Dockerfile",
     force_build=True
 )
+.dockerfile_commands("ARG PULL_LATEST=true")
 
 @app.function(
     image=image,
