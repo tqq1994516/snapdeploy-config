@@ -2,7 +2,7 @@
 ARG PULL_LATEST=false
 
 # 新加：如果 PULL_LATEST=true，就手动 pull 最新 latest
-RUN if [ "$PULL_LATEST" = "true" ]; then docker pull eceasy/cli-proxy-api:v7.2.16; fi
+RUN if [ "$PULL_LATEST" = "true" ]; then docker pull eceasy/cli-proxy-api:v7.2.43; fi
 
 # 原内容不变
 FROM eceasy/cli-proxy-api:latest AS source
